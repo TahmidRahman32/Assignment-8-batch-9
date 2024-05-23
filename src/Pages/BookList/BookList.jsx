@@ -1,6 +1,6 @@
+import toast from "react-hot-toast";
 import { useLoaderData, useParams } from "react-router-dom";
-import Nav from "../../Sheard/Nav";
-
+import { saveCardStore } from "../../Utils/storage";
 
 const BookList = () => {
    const cards = useLoaderData();
@@ -8,13 +8,25 @@ const BookList = () => {
    // const parsInt = parseInt(id)
    const card = cards.find((card) => card.bookId === id);
    // console.log(id, card);
-   const { image, rating, totalPages,  yearOfPublishing, bookName, category, publisher, tags, review } = card;
+   const { image, rating, totalPages, yearOfPublishing, bookName, category, publisher, tags, review, bookId } = card;
+
+   const handleReadBtn = ()=>{
+      const isCard = cards.find( card=> card.bookId === id);
+      console.log(isCard);
+      if(isCard){
+       saveCardStore(bookId);
+      toast.success("Successfully created!");  
+      }
+      else{
+         toast.error("This is an error!");
+      }
+
+      
+   }
    return (
       <div>
-         <Nav></Nav>
-
          <div className="card card-side bg-base-100 shadow-xl flex items-center">
-            <img className="bg-gray-200 rounded-xl" src={image} alt="Movie" />
+            <img className="bg-gray-200 w-96 rounded-xl" src={image} alt="Movie" />
 
             <div className="card-body">
                <h2 className="card-title">{bookName}</h2>
@@ -51,6 +63,10 @@ const BookList = () => {
                      <span className="font-bold mr-6">{yearOfPublishing}</span>
                      <span className="font-bold mr-6">{rating}</span>
                   </p>
+               </div>
+               <div className="flex gap-5">
+                  <button onClick={handleReadBtn} className="btn bg-color text-white">Read</button>
+                  <button className="btn btn-success text-white">Wishlist</button>
                </div>
             </div>
          </div>

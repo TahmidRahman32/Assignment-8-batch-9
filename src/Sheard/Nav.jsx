@@ -6,14 +6,11 @@ const Nav = () => {
          <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/">
             Home
          </NavLink>
-         <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/bookList">
+         <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/add">
             Listed Books
          </NavLink>
          <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/pagesToRead">
             Pages to Read
-         </NavLink>
-         <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/chart">
-           Chart
          </NavLink>
       </div>
    );
@@ -36,8 +33,8 @@ const Nav = () => {
             <ul className="menu menu-horizontal px-1">{navLinks}</ul>
          </div>
          <div className="navbar-end gap-3">
-            <a className="btn text-color">SignIn</a>
-            <a className="btn text-color">SignUp</a>
+            <a className="btn  bg-color">SignIn</a>
+            <a className="btn bg-color">SignUp</a>
          </div>
       </div>
    );

@@ -1,11 +1,24 @@
-import Nav from "../../../Sheard/Nav";
-
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { useLoaderData } from "react-router-dom";
 
 const PagesToRead = () => {
+   const chartData = useLoaderData();
+   console.log(chartData);
    return (
       <div>
-         <Nav></Nav>
-         <h2>pagesToRead</h2>
+         <div>
+            <div className="flex justify-center">
+               <CartesianGrid strokeDasharray="3 3"></CartesianGrid>
+
+               <BarChart width={800} height={500} data={chartData}>
+                  <Tooltip />
+                  <YAxis></YAxis>
+                  <XAxis></XAxis>
+
+                  <Bar dataKey="totalPages" fill="#82ca9d"></Bar>
+               </BarChart>
+            </div>
+         </div>
       </div>
    );
 };
