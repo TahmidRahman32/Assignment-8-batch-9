@@ -4,16 +4,18 @@ import Home from "../Pages/Home/Home";
 import BookList from "../Pages/BookList/BookList";
 import PagesToRead from "../Pages/BookList/PagesToRead/PagesToRead";
 import Chart from "../Pages/Chart/Chart";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
    {
       path: "/",
       element: <Root></Root>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
          {
             path: "/",
             element: <Home></Home>,
-            loader: ()=> fetch('data.json')
+            loader: () => fetch("data.json"),
          },
          {
             path: "/bookList",
@@ -21,17 +23,17 @@ const router = createBrowserRouter([
          },
          {
             path: "/pagesToRead",
-            element: <PagesToRead></PagesToRead> ,
+            element: <PagesToRead></PagesToRead>,
          },
          {
-            path: '/book/:id',
-            element: <BookList></BookList> ,
-            loader: () => fetch(`data.json`)
-
+            path: "/book/:id",
+            element: <BookList></BookList>,
+            loader: () => fetch(`data.json`),
          },
          {
-            path: '/chart',
-            element: <Chart></Chart>
+            path: "/chart",
+            element: <Chart></Chart>,
+            loader: () => fetch(`data.json`),
          },
       ],
    },

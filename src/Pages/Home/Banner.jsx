@@ -10,7 +10,7 @@ const Banner = () => {
                   <h1 className="font-bold text-6xl text-white play-font my-5 ">
                      Books to freshen up <br /> your bookshelf
                   </h1>
-                  <Link to={"/bookList"}>
+                  <Link to={"/"}>
                      <button className=" btn  rounded-xl bg-color play-font text-white hover:text-black border-0">View The List</button>
                   </Link>
                </div>
