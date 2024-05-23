@@ -1,23 +1,38 @@
+import { FaStar } from "react-icons/fa6";
+import { Link} from "react-router-dom";
 
+const Book = ({ book }) => {
+   const { image, rating, bookName, category, publisher, tags, bookId } = book;
+  
 
-const Book = ({book}) => {
-   const { image, rating, bookName, category ,} = book;
-   
    return (
-      <div>
-         <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <Link to={`/book/${bookId}`}>
+         <div className="card card-compact py-8 bg-base-100 shadow-xl">
             <figure>
-               <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+               <img className="w-72 h-80 rounded-xl" src={image} alt="Shoes" />
             </figure>
             <div className="card-body">
-               <h2 className="card-title">Shoes!</h2>
-               <p>If a dog chews shoes whose shoes does he choose?</p>
-               <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+               <div className="flex gap-2">
+                  <span className="px-3 text-color font-bold bg-gray-100 py-1 rounded-lg">{tags[0]}</span>
+                  <span className="px-3 text-color font-bold bg-gray-100 py-1 rounded-lg">{tags[1]}</span>
+               </div>
+               <h2 className="card-title">{bookName.slice(0, 25)}</h2>
+               <p>
+                  <span className="font-bold">By:</span> {publisher}
+               </p>
+               <hr />
+               <div className="card-actions ">
+                  <p className="font-bold">{category}</p>
+                  <div className="flex items-center gap-2">
+                     <p className="font-bold">{rating}</p>
+                     <p className="text-amber-500">
+                        <FaStar size={20} />
+                     </p>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
+      </Link>
    );
 };
 

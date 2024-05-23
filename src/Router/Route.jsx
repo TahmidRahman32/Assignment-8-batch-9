@@ -3,6 +3,7 @@ import Root from "../Pages/Root/Root";
 import Home from "../Pages/Home/Home";
 import BookList from "../Pages/BookList/BookList";
 import PagesToRead from "../Pages/BookList/PagesToRead/PagesToRead";
+import Chart from "../Pages/Chart/Chart";
 
 const router = createBrowserRouter([
    {
@@ -22,14 +23,16 @@ const router = createBrowserRouter([
             path: "/pagesToRead",
             element: <PagesToRead></PagesToRead> ,
          },
-         // {
-         //    path: '/',
-         //    element: <Home></Home>
-         // },
-         // {
-         //    path: '/',
-         //    element: <Home></Home>
-         // },
+         {
+            path: '/book/:id',
+            element: <BookList></BookList> ,
+            loader: () => fetch(`data.json`)
+
+         },
+         {
+            path: '/chart',
+            element: <Chart></Chart>
+         },
       ],
    },
 ]);

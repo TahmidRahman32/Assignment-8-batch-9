@@ -12,9 +12,9 @@ const Nav = () => {
          <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/pagesToRead">
             Pages to Read
          </NavLink>
-         {/* <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/">
-            Home
-         </NavLink> */}
+         <NavLink className={({ isActive }) => (isActive ? "text-blue-600 underline " : "font-bold")} to="/chart">
+           Chart
+         </NavLink>
       </div>
    );
    return (
@@ -35,8 +35,9 @@ const Nav = () => {
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navLinks}</ul>
          </div>
-         <div className="navbar-end">
-            <a className="btn">Button</a>
+         <div className="navbar-end gap-3">
+            <a className="btn text-color">SignIn</a>
+            <a className="btn text-color">SignUp</a>
          </div>
       </div>
    );
